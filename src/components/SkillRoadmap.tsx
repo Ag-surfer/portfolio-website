@@ -43,20 +43,29 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
         Learning Roadmap
       </h2>
 
-      <div className="relative mt-6">
+      <motion.div
+        className="relative mt-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.1 } },
+        }}
+      >
         {/* Connecting vertical line */}
         <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-border sm:left-[13px]" />
 
         <div className="space-y-6">
-          {roadmap.map((stage, i) => {
+          {roadmap.map((stage) => {
             const style = stageStyles[stage.level];
             return (
               <motion.div
                 key={stage.level}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, x: -16 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+                }}
                 className="relative pl-9 sm:pl-10"
               >
                 {/* Timeline dot */}
@@ -109,7 +118,7 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
