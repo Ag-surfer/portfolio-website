@@ -55,7 +55,7 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
                 key={stage.level}
                 initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="relative pl-9 sm:pl-10"
               >
