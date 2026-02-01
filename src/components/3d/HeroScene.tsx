@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useGLTF, Environment } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface HeroSceneProps {
@@ -53,7 +53,6 @@ export function HeroScene({ isMobile }: HeroSceneProps) {
       <directionalLight position={[5, 5, 5]} intensity={0.6} />
       <directionalLight position={[-3, -2, -4]} intensity={0.2} />
       <Sculpture isMobile={isMobile} />
-      <Environment preset="city" />
     </>
   );
 }
