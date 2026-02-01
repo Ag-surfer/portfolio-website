@@ -1,67 +1,87 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import {
-  Torus,
-  Box,
-  Sphere,
-  Cylinder,
-  Cone,
-  Icosahedron,
-} from '@react-three/drei';
 import * as THREE from 'three';
-
-const geometryMap: Record<string, string> = {
-  react: 'torus',
-  typescript: 'box',
-  nodejs: 'sphere',
-  database: 'cylinder',
-  design: 'cone',
-  ai: 'icosahedron',
-};
 
 interface SkillIcon3DProps {
   icon: string;
+  logoPath?: string;
   isHovered?: boolean;
 }
 
-export function SkillIcon3D({ icon, isHovered }: SkillIcon3DProps) {
+function useLogoTexture(logoPath?: string) {
+  const [texture, setTexture] = useState<THREE.Texture | null>(null);
+
+  useEffect(() => {
+    if (!logoPath) return;
+
+    const img = new window.Image();
+    img.crossOrigin = 'anonymous';
+    // Set explicit dimensions so SVGs rasterize at a good resolution
+    img.width = 256;
+    img.height = 256;
+
+    img.onload = () => {
+      // Render to canvas for reliable texture creation
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.drawImage(img, 0, 0, 256, 256);
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.needsUpdate = true;
+      setTexture(tex);
+    };
+
+    img.src = logoPath;
+
+    return () => {
+      if (texture) texture.dispose();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [logoPath]);
+
+  return texture;
+}
+
+export function SkillIcon3D({ icon, logoPath, isHovered }: SkillIcon3DProps) {
   const meshRef = useRef<THREE.Mesh>(null);
-  const geometry = geometryMap[icon] ?? 'sphere';
+  const scaleRef = useRef(1);
+  const texture = useLogoTexture(logoPath);
 
   useFrame(() => {
     if (!meshRef.current) return;
-    const targetSpeed = isHovered ? 0.04 : 0.008;
-    meshRef.current.rotation.y += targetSpeed;
-    meshRef.current.rotation.x += targetSpeed * 0.5;
+
+    const speed = isHovered ? 0.04 : 0.008;
+    meshRef.current.rotation.y += speed;
+    meshRef.current.rotation.x += speed * 0.5;
+
+    const targetScale = isHovered ? 1.3 : 1.0;
+    scaleRef.current = THREE.MathUtils.lerp(scaleRef.current, targetScale, 0.1);
+    meshRef.current.scale.setScalar(scaleRef.current);
   });
 
-  const mat = (
-    <meshStandardMaterial
-      color="#888"
-      wireframe
-      transparent
-      opacity={0.6}
-    />
-  );
-
-  const props = { ref: meshRef, scale: 0.8 };
-
-  switch (geometry) {
-    case 'torus':
-      return <Torus args={[0.6, 0.2, 8, 16]} {...props}>{mat}</Torus>;
-    case 'box':
-      return <Box args={[1, 1, 1]} {...props}>{mat}</Box>;
-    case 'sphere':
-      return <Sphere args={[0.6, 12, 12]} {...props}>{mat}</Sphere>;
-    case 'cylinder':
-      return <Cylinder args={[0.5, 0.5, 1, 8]} {...props}>{mat}</Cylinder>;
-    case 'cone':
-      return <Cone args={[0.6, 1, 8]} {...props}>{mat}</Cone>;
-    case 'icosahedron':
-      return <Icosahedron args={[0.7, 0]} {...props}>{mat}</Icosahedron>;
-    default:
-      return <Sphere args={[0.6, 12, 12]} {...props}>{mat}</Sphere>;
+  if (!texture) {
+    return (
+      <mesh ref={meshRef} scale={0.8}>
+        <sphereGeometry args={[0.6, 12, 12]} />
+        <meshStandardMaterial color="#888" wireframe transparent opacity={0.6} />
+      </mesh>
+    );
   }
+
+  return (
+    <mesh ref={meshRef}>
+      <planeGeometry args={[1.2, 1.2]} />
+      <meshBasicMaterial
+        map={texture}
+        transparent
+        side={THREE.DoubleSide}
+      />
+    </mesh>
+  );
 }

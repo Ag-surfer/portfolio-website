@@ -76,7 +76,7 @@ export function SkillCard({ skill, className }: SkillCardProps) {
                 <SceneWrapper className="h-10 w-10">
                   <ambientLight intensity={0.8} />
                   <directionalLight position={[3, 3, 3]} intensity={0.4} />
-                  <SkillIcon3D icon={skill.icon} isHovered={isHovered} />
+                  <SkillIcon3D icon={skill.icon} logoPath={skill.logoPath} isHovered={isHovered} />
                 </SceneWrapper>
               </Suspense>
             </div>

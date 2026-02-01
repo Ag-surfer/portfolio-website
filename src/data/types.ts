@@ -32,6 +32,7 @@ export interface Skill {
   category: 'frontend' | 'backend' | 'design' | 'ai-ml' | 'database' | 'systems' | 'networking';
   proficiency: number; // 0-100
   icon: string; // emoji or icon name
+  logoPath?: string; // path to logo SVG/PNG in /public
   description: string;
   longDescription: string;
   highlights: string[];

@@ -105,18 +105,7 @@ export function ContactSection({ showInfo = false }: ContactSectionProps) {
     >
       <GradientMesh variant="contact" />
 
-      {/* Decorative globe */}
-      {!isMobile && !prefersReduced && (
-        <div
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[300px] h-[300px] opacity-40 hidden lg:block"
-          aria-hidden="true"
-        >
-          <SceneWrapper className="h-full w-full">
-            <ambientLight intensity={0.5} />
-            <Globe />
-          </SceneWrapper>
-        </div>
-      )}
+      {/* Decorative globe - hidden, replaced by full globe below form */}
 
       <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
         Get in Touch
@@ -362,6 +351,20 @@ export function ContactSection({ showInfo = false }: ContactSectionProps) {
           </div>
         )}
       </div>
+      {/* 3D Globe with country outlines */}
+      {!prefersReduced && (
+        <div
+          className="mx-auto mt-16 h-[350px] w-full max-w-[500px] sm:h-[420px] sm:max-w-[550px]"
+          aria-hidden="true"
+        >
+          <SceneWrapper className="h-full w-full">
+            <ambientLight intensity={0.3} />
+            <directionalLight position={[5, 3, 5]} intensity={1.2} />
+            <directionalLight position={[-3, -1, -3]} intensity={0.15} />
+            <Globe />
+          </SceneWrapper>
+        </div>
+      )}
     </motion.section>
   );
 }

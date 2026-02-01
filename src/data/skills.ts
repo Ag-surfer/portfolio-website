@@ -8,6 +8,7 @@ export const skills: Skill[] = [
     category: 'frontend',
     proficiency: 90,
     icon: 'react',
+    logoPath: '/logos/skills/react.svg',
     description:
       'Building fast, interactive UIs with React and production-grade apps with Next.js.',
     longDescription:
@@ -86,6 +87,7 @@ export const skills: Skill[] = [
     category: 'frontend',
     proficiency: 85,
     icon: 'typescript',
+    logoPath: '/logos/skills/typescript.svg',
     description:
       'Writing type-safe code that catches bugs at compile time, not in production.',
     longDescription:
@@ -164,6 +166,7 @@ export const skills: Skill[] = [
     category: 'backend',
     proficiency: 85,
     icon: 'nodejs',
+    logoPath: '/logos/skills/nodejs.svg',
     description:
       'Designing APIs and backend systems that are fast, reliable, and easy to maintain.',
     longDescription:
@@ -242,6 +245,7 @@ export const skills: Skill[] = [
     category: 'database',
     proficiency: 80,
     icon: 'database',
+    logoPath: '/logos/skills/database.svg',
     description:
       'Modeling data that scales well and writing queries that stay fast as tables grow.',
     longDescription:
@@ -319,6 +323,7 @@ export const skills: Skill[] = [
     category: 'design',
     proficiency: 75,
     icon: 'design',
+    logoPath: '/logos/skills/design.svg',
     description:
       'Designing interfaces that look great and feel intuitive, from wireframe to polished pixel.',
     longDescription:
@@ -397,6 +402,7 @@ export const skills: Skill[] = [
     category: 'ai-ml',
     proficiency: 70,
     icon: 'ai',
+    logoPath: '/logos/skills/ai.svg',
     description:
       'Integrating large language models and ML pipelines into real products people use daily.',
     longDescription:
@@ -470,6 +476,7 @@ export const skills: Skill[] = [
     category: 'systems',
     proficiency: 75,
     icon: 'c',
+    logoPath: '/logos/skills/c.svg',
     description:
       'Writing efficient, low-level systems code with manual memory management and hardware awareness.',
     longDescription:
@@ -544,6 +551,7 @@ export const skills: Skill[] = [
     category: 'systems',
     proficiency: 65,
     icon: 'rust',
+    logoPath: '/logos/skills/rust.svg',
     description:
       'Building safe, concurrent systems with zero-cost abstractions and no garbage collector.',
     longDescription:
@@ -618,6 +626,7 @@ export const skills: Skill[] = [
     category: 'backend',
     proficiency: 80,
     icon: 'python',
+    logoPath: '/logos/skills/python.svg',
     description:
       'Scripting, automation, data processing, and rapid prototyping with clean, readable code.',
     longDescription:
@@ -692,6 +701,7 @@ export const skills: Skill[] = [
     category: 'networking',
     proficiency: 70,
     icon: 'networking',
+    logoPath: '/logos/skills/networking.svg',
     description:
       'Understanding network protocols, architecture, and security from the physical layer to the application layer.',
     longDescription:
