@@ -18,6 +18,11 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-fetch"],
       "description": "Fetch web content and APIs"
+    },
+    "blender": {
+      "command": "uvx",
+      "args": ["blender-mcp"],
+      "description": "Blender 3D modeling via MCP"
     }
   }
 }
