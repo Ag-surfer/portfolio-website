@@ -24,7 +24,7 @@ export interface Skill {
   id: string;
   slug: string;
   name: string;
-  category: 'frontend' | 'backend' | 'design' | 'ai-ml' | 'database';
+  category: 'frontend' | 'backend' | 'design' | 'ai-ml' | 'database' | 'systems' | 'networking';
   proficiency: number; // 0-100
   icon: string; // emoji or icon name
   description: string;

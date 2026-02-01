@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     let data: Skill[] = skills;
 
     if (category) {
-      const validCategories = ['frontend', 'backend', 'design', 'ai-ml', 'database'] as const;
+      const validCategories = ['frontend', 'backend', 'design', 'ai-ml', 'database', 'systems', 'networking'] as const;
       if (validCategories.includes(category as Skill['category'])) {
         data = data.filter((s) => s.category === category);
       } else {

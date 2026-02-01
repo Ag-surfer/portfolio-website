@@ -34,6 +34,10 @@ const iconMap: Record<string, string> = {
   database: '\uD83D\uDDC4\uFE0F',
   design: '\uD83C\uDFA8',
   ai: '\uD83E\uDD16',
+  c: '\u2699\uFE0F',
+  rust: '\uD83E\uDD80',
+  python: '\uD83D\uDC0D',
+  networking: '\uD83C\uDF10',
 };
 
 const categoryLabels: Record<string, string> = {
@@ -42,6 +46,8 @@ const categoryLabels: Record<string, string> = {
   design: 'Design',
   'ai-ml': 'AI / ML',
   database: 'Database',
+  systems: 'Systems Programming',
+  networking: 'Networking',
 };
 
 export default async function SkillPage({ params }: PageProps) {

@@ -271,6 +271,174 @@ export const skills: Skill[] = [
       },
     ],
   },
+  {
+    id: 'skill-7',
+    slug: 'c-programming',
+    name: 'C Programming',
+    category: 'systems',
+    proficiency: 75,
+    icon: 'c',
+    description:
+      'Writing efficient, low-level systems code with manual memory management and hardware awareness.',
+    longDescription:
+      'C gave me a deep understanding of how computers actually work. I use it for performance-critical code, embedded systems, and understanding the internals of higher-level tools I rely on daily. Working in C taught me to think about memory layout, pointer arithmetic, and the cost of every abstraction. I appreciate the discipline it demands -- every allocation has a matching free, every buffer has a known size.',
+    highlights: [
+      'Built custom memory allocators for performance-critical applications',
+      'Implemented network protocols at the socket level',
+      'Contributed patches to open-source C libraries',
+      'Wrote embedded firmware for microcontroller-based projects',
+    ],
+    relatedProjectSlugs: [],
+    yearsOfExperience: 3,
+    roadmap: [
+      {
+        level: 'beginner',
+        label: 'Beginner',
+        topics: ['Variables, data types & operators', 'Control flow (if/else, loops, switch)', 'Functions & parameter passing', 'Arrays & strings', 'Pointers & addresses', 'Basic I/O (printf, scanf)', 'Compilation with gcc/clang'],
+      },
+      {
+        level: 'intermediate',
+        label: 'Intermediate',
+        topics: ['Dynamic memory (malloc, calloc, free)', 'Structs & unions', 'File I/O & streams', 'Header files & multi-file projects', 'Makefiles & build systems', 'Preprocessor macros & directives', 'Debugging with gdb & valgrind'],
+      },
+      {
+        level: 'advanced',
+        label: 'Advanced',
+        topics: ['Function pointers & callbacks', 'Bit manipulation & bitfields', 'Custom data structures (linked lists, trees)', 'Socket programming', 'Signal handling & IPC', 'Thread programming (pthreads)', 'Undefined behavior & compiler optimizations'],
+      },
+      {
+        level: 'expert',
+        label: 'Expert',
+        topics: ['Custom memory allocators', 'Lock-free data structures', 'Embedded & bare-metal programming', 'Kernel module development', 'Compiler internals & code generation', 'Static analysis & formal verification', 'ABI compatibility & cross-compilation'],
+      },
+    ],
+  },
+  {
+    id: 'skill-8',
+    slug: 'rust',
+    name: 'Rust',
+    category: 'systems',
+    proficiency: 65,
+    icon: 'rust',
+    description:
+      'Building safe, concurrent systems with zero-cost abstractions and no garbage collector.',
+    longDescription:
+      'Rust gives me the performance of C with the safety guarantees I wish C had. The ownership model clicked after a few frustrating weeks, and now it shapes how I think about resource management in every language. I use Rust for CLI tools, WebAssembly modules, and backend services where predictable latency matters. The ecosystem around cargo, clippy, and the type system makes it a joy to write correct code on the first try.',
+    highlights: [
+      'Built high-throughput CLI tools processing gigabytes of data',
+      'Compiled Rust to WebAssembly for browser-based compute',
+      'Implemented async services with Tokio for concurrent workloads',
+      'Achieved zero unsafe blocks in production application code',
+    ],
+    relatedProjectSlugs: [],
+    yearsOfExperience: 2,
+    roadmap: [
+      {
+        level: 'beginner',
+        label: 'Beginner',
+        topics: ['Variables, mutability & shadowing', 'Primitive types & compound types', 'Functions & control flow', 'Ownership & borrowing basics', 'String vs &str', 'Structs & enums', 'Pattern matching & match'],
+      },
+      {
+        level: 'intermediate',
+        label: 'Intermediate',
+        topics: ['Traits & generics', 'Error handling (Result, Option, ?)', 'Iterators & closures', 'Modules & crate structure', 'Collections (Vec, HashMap)', 'Cargo workspace & dependencies', 'Testing & documentation'],
+      },
+      {
+        level: 'advanced',
+        label: 'Advanced',
+        topics: ['Lifetimes & lifetime elision', 'Smart pointers (Box, Rc, Arc)', 'Concurrency with threads & channels', 'Async/await & Tokio runtime', 'Trait objects & dynamic dispatch', 'Macros (declarative & procedural)', 'FFI & C interop'],
+      },
+      {
+        level: 'expert',
+        label: 'Expert',
+        topics: ['Unsafe Rust & raw pointers', 'Custom allocators & no_std', 'Lock-free concurrency patterns', 'Compiler plugin development', 'WebAssembly compilation & optimization', 'Performance profiling & benchmarking', 'Embedded Rust & RTIC framework'],
+      },
+    ],
+  },
+  {
+    id: 'skill-9',
+    slug: 'python',
+    name: 'Python',
+    category: 'backend',
+    proficiency: 80,
+    icon: 'python',
+    description:
+      'Scripting, automation, data processing, and rapid prototyping with clean, readable code.',
+    longDescription:
+      'Python is my go-to for anything that needs to be built fast and work reliably: automation scripts, data pipelines, API prototypes, and ML experimentation. I value its readability and the vast ecosystem of libraries. I use type hints and mypy on serious projects, and I know when to reach for pandas, FastAPI, or plain standard-library tools. Python taught me that clarity beats cleverness every time.',
+    highlights: [
+      'Automated data pipelines processing millions of records daily',
+      'Built REST APIs with FastAPI and async database access',
+      'Created CLI tools with Click for internal developer workflows',
+      'Wrote data analysis scripts with pandas and NumPy',
+    ],
+    relatedProjectSlugs: ['ai-content-engine'],
+    yearsOfExperience: 4,
+    roadmap: [
+      {
+        level: 'beginner',
+        label: 'Beginner',
+        topics: ['Variables, types & operators', 'Control flow & loops', 'Functions & scope', 'Lists, dicts, sets & tuples', 'String manipulation', 'File I/O & exceptions', 'Modules & pip'],
+      },
+      {
+        level: 'intermediate',
+        label: 'Intermediate',
+        topics: ['List/dict/set comprehensions', 'Decorators & context managers', 'Classes & OOP patterns', 'Virtual environments & packaging', 'Type hints & mypy', 'Unit testing (pytest)', 'Standard library deep dive (itertools, pathlib, collections)'],
+      },
+      {
+        level: 'advanced',
+        label: 'Advanced',
+        topics: ['Generators & coroutines', 'Async/await (asyncio)', 'Metaclasses & descriptors', 'FastAPI / Flask patterns', 'pandas & NumPy for data', 'Profiling & optimization (cProfile)', 'C extensions & ctypes'],
+      },
+      {
+        level: 'expert',
+        label: 'Expert',
+        topics: ['CPython internals & bytecode', 'Custom import machinery', 'Multiprocessing & GIL strategies', 'Building production ML pipelines', 'Package publishing (PyPI)', 'Static analysis (ruff, pylint)', 'Large-scale monorepo tooling'],
+      },
+    ],
+  },
+  {
+    id: 'skill-10',
+    slug: 'networking',
+    name: 'Networking',
+    category: 'networking',
+    proficiency: 70,
+    icon: 'networking',
+    description:
+      'Understanding network protocols, architecture, and security from the physical layer to the application layer.',
+    longDescription:
+      'Networking knowledge underpins everything I build on the web. I understand TCP/IP, DNS, TLS, and HTTP at a level that lets me debug production issues others find mysterious. I have configured load balancers, set up VPNs, analyzed packet captures with Wireshark, and designed network architectures for multi-region deployments. This knowledge makes me a better backend engineer because I understand what happens between the client and my code.',
+    highlights: [
+      'Diagnosed and resolved complex latency issues using packet analysis',
+      'Configured multi-region deployments with CDN and load balancing',
+      'Implemented TLS termination and certificate automation',
+      'Designed network security policies and firewall rules',
+    ],
+    relatedProjectSlugs: [],
+    yearsOfExperience: 3,
+    roadmap: [
+      {
+        level: 'beginner',
+        label: 'Beginner',
+        topics: ['OSI & TCP/IP model layers', 'IP addressing & subnetting', 'DNS resolution & records', 'HTTP request/response lifecycle', 'MAC addresses & ARP', 'Basic CLI tools (ping, traceroute, nslookup)', 'LAN vs WAN fundamentals'],
+      },
+      {
+        level: 'intermediate',
+        label: 'Intermediate',
+        topics: ['TCP vs UDP deep dive', 'TLS/SSL handshake & certificates', 'Routing & BGP basics', 'Firewalls & NAT', 'VLANs & network segmentation', 'Wireshark & packet analysis', 'HTTP/2 & HTTP/3 (QUIC)'],
+      },
+      {
+        level: 'advanced',
+        label: 'Advanced',
+        topics: ['Load balancing algorithms (L4 vs L7)', 'CDN architecture & caching', 'VPN protocols (WireGuard, IPSec)', 'Socket programming & raw sockets', 'Network security (IDS/IPS)', 'Service mesh & sidecar proxies', 'DNS security (DNSSEC, DoH, DoT)'],
+      },
+      {
+        level: 'expert',
+        label: 'Expert',
+        topics: ['SDN & network automation', 'BGP peering & traffic engineering', 'DDoS mitigation strategies', 'Zero-trust network architecture', 'Network performance tuning (kernel params)', 'Multi-region network design', 'Protocol design & implementation'],
+      },
+    ],
+  },
 ];
 
 export function getSkillBySlug(slug: string): Skill | undefined {
