@@ -10,7 +10,7 @@ interface HeroSceneProps {
 }
 
 function Sculpture({ isMobile }: { isMobile?: boolean }) {
-  const { scene } = useGLTF('/models/hero-sculpture.glb', '/draco');
+  const { scene } = useGLTF('/models/hero-sculpture.glb', '/draco/');
   const groupRef = useRef<THREE.Group>(null);
 
   const baseScale = isMobile ? 1.8 : 2.4;
@@ -58,4 +58,4 @@ export function HeroScene({ isMobile }: HeroSceneProps) {
   );
 }
 
-useGLTF.preload('/models/hero-sculpture.glb', '/draco');
+useGLTF.preload('/models/hero-sculpture.glb', '/draco/');
