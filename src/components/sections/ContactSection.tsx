@@ -13,8 +13,11 @@ const SceneWrapper = dynamic(
   () => import('@/components/3d/SceneWrapper').then((m) => m.SceneWrapper),
   { ssr: false }
 );
-const Globe = dynamic(
-  () => import('@/components/3d/Globe').then((m) => m.Globe),
+const AnimatedCharacter = dynamic(
+  () =>
+    import('@/components/3d/AnimatedCharacter').then(
+      (m) => m.AnimatedCharacter
+    ),
   { ssr: false }
 );
 
@@ -351,17 +354,17 @@ export function ContactSection({ showInfo = false }: ContactSectionProps) {
           </div>
         )}
       </div>
-      {/* 3D Globe with country outlines */}
+      {/* 3D Animated Character */}
       {!prefersReduced && (
         <div
-          className="mx-auto mt-16 h-[350px] w-full max-w-[500px] sm:h-[420px] sm:max-w-[550px]"
+          className="mx-auto mt-16 h-[400px] w-full max-w-[400px] sm:h-[480px] sm:max-w-[450px]"
           aria-hidden="true"
         >
           <SceneWrapper className="h-full w-full">
-            <ambientLight intensity={0.3} />
-            <directionalLight position={[5, 3, 5]} intensity={1.2} />
-            <directionalLight position={[-3, -1, -3]} intensity={0.15} />
-            <Globe />
+            <ambientLight intensity={0.6} />
+            <directionalLight position={[5, 5, 5]} intensity={1} />
+            <directionalLight position={[-3, 2, -3]} intensity={0.3} />
+            <AnimatedCharacter />
           </SceneWrapper>
         </div>
       )}
