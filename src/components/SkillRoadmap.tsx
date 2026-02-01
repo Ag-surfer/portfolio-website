@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import type { RoadmapStage } from '@/data/types';
 
 const stageStyles: Record<
@@ -34,6 +35,9 @@ interface SkillRoadmapProps {
 }
 
 export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.05 });
+
   return (
     <section className="mt-12" aria-labelledby="roadmap-heading">
       <h2
@@ -43,29 +47,19 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
         Learning Roadmap
       </h2>
 
-      <motion.div
-        className="relative mt-6"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.1 } },
-        }}
-      >
+      <div className="relative mt-6" ref={ref}>
         {/* Connecting vertical line */}
         <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-border sm:left-[13px]" />
 
         <div className="space-y-6">
-          {roadmap.map((stage) => {
+          {roadmap.map((stage, i) => {
             const style = stageStyles[stage.level];
             return (
               <motion.div
                 key={stage.level}
-                variants={{
-                  hidden: { opacity: 0, x: -16 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
-                }}
+                initial={{ opacity: 0, x: -16 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="relative pl-9 sm:pl-10"
               >
                 {/* Timeline dot */}
@@ -118,7 +112,7 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
             );
           })}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
