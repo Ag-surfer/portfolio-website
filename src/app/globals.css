@@ -142,12 +142,6 @@
   }
 }
 
-/* Custom cursor: hide default cursor when active */
-.custom-cursor-active,
-.custom-cursor-active * {
-  cursor: none !important;
-}
-
 /* Focus glow for inputs in contact form */
 .input-focus-glow:focus-visible {
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 20px hsl(var(--ring) / 0.15);
