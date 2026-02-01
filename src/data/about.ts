@@ -14,7 +14,7 @@ Right now I am exploring how AI can make developer tools smarter and building th
   location: 'San Francisco, CA',
   email: 'kr.sparrow@pm.me',
   socialLinks: {
-    github: 'https://github.com/krishnap',
+    github: 'https://github.com/Ag-surfer',
     linkedin: 'https://linkedin.com/in/krishnap',
     twitter: 'https://twitter.com/krishnap_dev',
   },
