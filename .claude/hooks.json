@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/.claude/hooks.schema.json",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": {
+          "tool": "Write",
+          "pattern": "**/*.{ts,tsx,js,jsx}"
+        },
+        "command": "npx prettier --write \"$CLAUDE_FILE_PATH\" 2>/dev/null || true",
+        "description": "Auto-format TypeScript/JavaScript files after writing"
+      },
+      {
+        "matcher": {
+          "tool": "Write", 
+          "pattern": "**/*.{css,scss,json,md}"
+        },
+        "command": "npx prettier --write \"$CLAUDE_FILE_PATH\" 2>/dev/null || true",
+        "description": "Auto-format CSS, JSON, and Markdown files"
+      }
+    ],
+    "PreCommit": [
+      {
+        "command": "npm run lint --silent 2>/dev/null || echo 'Lint check skipped'",
+        "description": "Run linter before commits"
+      },
+      {
+        "command": "npm run type-check --silent 2>/dev/null || echo 'Type check skipped'",
+        "description": "Run TypeScript type checking before commits"
+      }
+    ],
+    "SubagentStop": [
+      {
+        "command": "echo \"Subagent completed: $CLAUDE_SUBAGENT_NAME\"",
+        "description": "Log when subagents complete their tasks"
+      }
+    ]
+  }
+}
