@@ -14,10 +14,15 @@ export interface Project {
   completedAt: string; // ISO date
 }
 
+export interface RoadmapTopic {
+  title: string;
+  description: string;
+}
+
 export interface RoadmapStage {
   level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
   label: string;
-  topics: string[];
+  topics: RoadmapTopic[];
 }
 
 export interface Skill {

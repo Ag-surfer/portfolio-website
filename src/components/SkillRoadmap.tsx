@@ -77,11 +77,11 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
                     </span>
                   </div>
 
-                  <ul className="mt-3 grid gap-1.5 sm:grid-cols-2">
+                  <ul className="mt-3 grid gap-2.5">
                     {stage.topics.map((topic) => (
                       <li
-                        key={topic}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                        key={topic.title}
+                        className="flex items-start gap-2 text-sm"
                       >
                         <svg
                           className="mt-0.5 h-4 w-4 shrink-0 text-primary/60"
@@ -97,7 +97,10 @@ export function SkillRoadmap({ roadmap }: SkillRoadmapProps) {
                             strokeLinejoin="round"
                           />
                         </svg>
-                        <span>{topic}</span>
+                        <div>
+                          <span className="font-medium text-foreground">{topic.title}</span>
+                          <p className="mt-0.5 text-muted-foreground">{topic.description}</p>
+                        </div>
                       </li>
                     ))}
                   </ul>
