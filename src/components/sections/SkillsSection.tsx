@@ -33,7 +33,7 @@ export function SkillsSection() {
         className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={staggerContainer}
       >
         {skills.map((skill) => (

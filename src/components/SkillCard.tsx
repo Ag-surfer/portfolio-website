@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { staggerItem } from '@/lib/animations';
 import { useTilt } from '@/hooks/useTilt';
@@ -26,6 +26,8 @@ interface SkillCardProps {
 export function SkillCard({ skill, className }: SkillCardProps) {
   const emoji = iconMap[skill.icon] ?? skill.icon;
   const [isHovered, setIsHovered] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(barRef, { once: true, amount: 0.5 });
   const { ref, onMouseMove, onMouseLeave } = useTilt<HTMLDivElement>({
     maxTilt: 8,
     scale: 1.02,
@@ -35,6 +37,7 @@ export function SkillCard({ skill, className }: SkillCardProps) {
     <motion.div
       ref={ref}
       variants={staggerItem}
+      whileTap={{ scale: 0.97 }}
       onMouseMove={onMouseMove}
       onMouseLeave={(e) => {
         onMouseLeave();
@@ -93,12 +96,11 @@ export function SkillCard({ skill, className }: SkillCardProps) {
             <span>Proficiency</span>
             <span>{skill.proficiency}%</span>
           </div>
-          <div className="h-2 overflow-hidden rounded-full bg-secondary">
+          <div ref={barRef} className="h-2 overflow-hidden rounded-full bg-secondary">
             <motion.div
               className="h-full rounded-full bg-primary"
               initial={{ width: 0 }}
-              whileInView={{ width: `${skill.proficiency}%` }}
-              viewport={{ once: true }}
+              animate={isInView ? { width: `${skill.proficiency}%` } : { width: 0 }}
               transition={{
                 duration: 0.8,
                 ease: [0.4, 0, 0.2, 1],
