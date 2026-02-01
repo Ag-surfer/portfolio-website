@@ -1,23 +1,13 @@
 'use client';
 
-import { useState, Suspense } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
 import { staggerItem } from '@/lib/animations';
 import { useTilt } from '@/hooks/useTilt';
-import { useIsMobile } from '@/hooks/useIsMobile';
 import type { Skill } from '@/data/types';
-
-const SceneWrapper = dynamic(
-  () => import('@/components/3d/SceneWrapper').then((m) => m.SceneWrapper),
-  { ssr: false }
-);
-const SkillIcon3D = dynamic(
-  () => import('@/components/3d/SkillIcon3D').then((m) => m.SkillIcon3D),
-  { ssr: false }
-);
 
 const iconMap: Record<string, string> = {
   react: '\u269B\uFE0F',
@@ -36,7 +26,6 @@ interface SkillCardProps {
 export function SkillCard({ skill, className }: SkillCardProps) {
   const emoji = iconMap[skill.icon] ?? skill.icon;
   const [isHovered, setIsHovered] = useState(false);
-  const isMobile = useIsMobile();
   const { ref, onMouseMove, onMouseLeave } = useTilt<HTMLDivElement>({
     maxTilt: 8,
     scale: 1.02,
@@ -63,23 +52,20 @@ export function SkillCard({ skill, className }: SkillCardProps) {
         )}
       >
         <div className="flex items-center gap-3">
-          {/* 3D icon on desktop, emoji fallback on mobile/loading */}
-          {!isMobile ? (
-            <div className="h-12 w-12 flex-shrink-0">
-              <Suspense
-                fallback={
-                  <span className="text-3xl" role="img" aria-hidden="true">
-                    {emoji}
-                  </span>
-                }
-              >
-                <SceneWrapper className="h-12 w-12">
-                  <ambientLight intensity={0.7} />
-                  <directionalLight position={[3, 3, 3]} intensity={0.8} />
-                  <directionalLight position={[-2, -1, -2]} intensity={0.2} />
-                  <SkillIcon3D icon={skill.icon} logoPath={skill.logoPath} modelPath={skill.modelPath} isHovered={isHovered} />
-                </SceneWrapper>
-              </Suspense>
+          {skill.logoPath ? (
+            <div
+              className={cn(
+                'h-10 w-10 flex-shrink-0 transition-transform duration-200',
+                isHovered && 'scale-110'
+              )}
+            >
+              <Image
+                src={skill.logoPath}
+                alt={`${skill.name} logo`}
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
             </div>
           ) : (
             <span className="text-3xl" role="img" aria-hidden="true">
