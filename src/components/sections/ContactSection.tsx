@@ -343,10 +343,10 @@ export function ContactSection({ showInfo = false }: ContactSectionProps) {
               <div>
                 <p className="text-sm font-medium">Email</p>
                 <a
-                  href="mailto:hello@krishnap.dev"
+                  href="mailto:kr.sparrow@pm.me"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hello@krishnap.dev
+                  kr.sparrow@pm.me
                 </a>
               </div>
             </div>

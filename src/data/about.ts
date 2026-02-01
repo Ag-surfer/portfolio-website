@@ -12,7 +12,7 @@ My sweet spot is the intersection of engineering and design. I write clean, type
 
 Right now I am exploring how AI can make developer tools smarter and building this portfolio to share what I have learned along the way.`,
   location: 'San Francisco, CA',
-  email: 'hello@krishnap.dev',
+  email: 'kr.sparrow@pm.me',
   socialLinks: {
     github: 'https://github.com/krishnap',
     linkedin: 'https://linkedin.com/in/krishnap',

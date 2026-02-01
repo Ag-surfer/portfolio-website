@@ -14,7 +14,7 @@ export const siteMetadata: SiteMetadata & {
   author: 'Krishna P',
   name: 'Krishna P',
   role: 'Full-Stack Developer & Creative Technologist',
-  email: 'hello@krishnap.dev',
+  email: 'kr.sparrow@pm.me',
   ogImage: '/images/og-image.jpg',
   twitterHandle: '@krishnap_dev',
   keywords: [

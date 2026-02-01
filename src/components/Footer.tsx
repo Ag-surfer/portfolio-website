@@ -3,7 +3,7 @@ import Link from 'next/link';
 const socialLinks = [
   { href: 'https://github.com/Ag-surfer', label: 'GitHub' },
   { href: 'https://linkedin.com/in/krishnap', label: 'LinkedIn' },
-  { href: 'mailto:hello@krishnap.dev', label: 'Email' },
+  { href: 'mailto:kr.sparrow@pm.me', label: 'Email' },
 ];
 
 export function Footer() {
