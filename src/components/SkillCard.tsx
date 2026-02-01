@@ -65,7 +65,7 @@ export function SkillCard({ skill, className }: SkillCardProps) {
         <div className="flex items-center gap-3">
           {/* 3D icon on desktop, emoji fallback on mobile/loading */}
           {!isMobile ? (
-            <div className="h-10 w-10 flex-shrink-0">
+            <div className="h-12 w-12 flex-shrink-0">
               <Suspense
                 fallback={
                   <span className="text-3xl" role="img" aria-hidden="true">
@@ -73,10 +73,11 @@ export function SkillCard({ skill, className }: SkillCardProps) {
                   </span>
                 }
               >
-                <SceneWrapper className="h-10 w-10">
-                  <ambientLight intensity={0.8} />
-                  <directionalLight position={[3, 3, 3]} intensity={0.4} />
-                  <SkillIcon3D icon={skill.icon} logoPath={skill.logoPath} isHovered={isHovered} />
+                <SceneWrapper className="h-12 w-12">
+                  <ambientLight intensity={0.7} />
+                  <directionalLight position={[3, 3, 3]} intensity={0.8} />
+                  <directionalLight position={[-2, -1, -2]} intensity={0.2} />
+                  <SkillIcon3D icon={skill.icon} logoPath={skill.logoPath} modelPath={skill.modelPath} isHovered={isHovered} />
                 </SceneWrapper>
               </Suspense>
             </div>

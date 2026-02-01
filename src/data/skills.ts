@@ -9,6 +9,7 @@ export const skills: Skill[] = [
     proficiency: 90,
     icon: 'react',
     logoPath: '/logos/skills/react.svg',
+    modelPath: '/models/skills/react.glb',
     description:
       'Building fast, interactive UIs with React and production-grade apps with Next.js.',
     longDescription:
@@ -88,6 +89,7 @@ export const skills: Skill[] = [
     proficiency: 85,
     icon: 'typescript',
     logoPath: '/logos/skills/typescript.svg',
+    modelPath: '/models/skills/typescript.glb',
     description:
       'Writing type-safe code that catches bugs at compile time, not in production.',
     longDescription:
@@ -167,6 +169,7 @@ export const skills: Skill[] = [
     proficiency: 85,
     icon: 'nodejs',
     logoPath: '/logos/skills/nodejs.svg',
+    modelPath: '/models/skills/nodejs.glb',
     description:
       'Designing APIs and backend systems that are fast, reliable, and easy to maintain.',
     longDescription:
@@ -246,6 +249,7 @@ export const skills: Skill[] = [
     proficiency: 80,
     icon: 'database',
     logoPath: '/logos/skills/database.svg',
+    modelPath: '/models/skills/database.glb',
     description:
       'Modeling data that scales well and writing queries that stay fast as tables grow.',
     longDescription:
@@ -324,6 +328,7 @@ export const skills: Skill[] = [
     proficiency: 75,
     icon: 'design',
     logoPath: '/logos/skills/design.svg',
+    modelPath: '/models/skills/design.glb',
     description:
       'Designing interfaces that look great and feel intuitive, from wireframe to polished pixel.',
     longDescription:
@@ -403,6 +408,7 @@ export const skills: Skill[] = [
     proficiency: 70,
     icon: 'ai',
     logoPath: '/logos/skills/ai.svg',
+    modelPath: '/models/skills/ai.glb',
     description:
       'Integrating large language models and ML pipelines into real products people use daily.',
     longDescription:
@@ -477,6 +483,7 @@ export const skills: Skill[] = [
     proficiency: 75,
     icon: 'c',
     logoPath: '/logos/skills/c.svg',
+    modelPath: '/models/skills/c.glb',
     description:
       'Writing efficient, low-level systems code with manual memory management and hardware awareness.',
     longDescription:
@@ -552,6 +559,7 @@ export const skills: Skill[] = [
     proficiency: 65,
     icon: 'rust',
     logoPath: '/logos/skills/rust.svg',
+    modelPath: '/models/skills/rust.glb',
     description:
       'Building safe, concurrent systems with zero-cost abstractions and no garbage collector.',
     longDescription:
@@ -627,6 +635,7 @@ export const skills: Skill[] = [
     proficiency: 80,
     icon: 'python',
     logoPath: '/logos/skills/python.svg',
+    modelPath: '/models/skills/python.glb',
     description:
       'Scripting, automation, data processing, and rapid prototyping with clean, readable code.',
     longDescription:
@@ -702,6 +711,7 @@ export const skills: Skill[] = [
     proficiency: 70,
     icon: 'networking',
     logoPath: '/logos/skills/networking.svg',
+    modelPath: '/models/skills/networking.glb',
     description:
       'Understanding network protocols, architecture, and security from the physical layer to the application layer.',
     longDescription:

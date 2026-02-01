@@ -33,6 +33,7 @@ export interface Skill {
   proficiency: number; // 0-100
   icon: string; // emoji or icon name
   logoPath?: string; // path to logo SVG/PNG in /public
+  modelPath?: string; // path to 3D GLB model in /public
   description: string;
   longDescription: string;
   highlights: string[];

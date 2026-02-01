@@ -3,23 +3,10 @@
 import { useState, useId, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import dynamic from 'next/dynamic';
 import { CheckCircle, Send, Loader2, Mail, MapPin } from 'lucide-react';
 import { useIsMobile } from '@/hooks/useIsMobile';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { GradientMesh } from '@/components/GradientMesh';
 
-const SceneWrapper = dynamic(
-  () => import('@/components/3d/SceneWrapper').then((m) => m.SceneWrapper),
-  { ssr: false }
-);
-const AnimatedCharacter = dynamic(
-  () =>
-    import('@/components/3d/AnimatedCharacter').then(
-      (m) => m.AnimatedCharacter
-    ),
-  { ssr: false }
-);
 
 interface ContactSectionProps {
   showInfo?: boolean;
@@ -62,7 +49,6 @@ export function ContactSection({ showInfo = false }: ContactSectionProps) {
   const [status, setStatus] = useState<FormStatus>('idle');
 
   const isMobile = useIsMobile();
-  const prefersReduced = useReducedMotion();
   const formId = useId();
   const nameId = `${formId}-name`;
   const emailId = `${formId}-email`;
@@ -354,20 +340,6 @@ export function ContactSection({ showInfo = false }: ContactSectionProps) {
           </div>
         )}
       </div>
-      {/* 3D Animated Character */}
-      {!prefersReduced && (
-        <div
-          className="mx-auto mt-16 h-[400px] w-full max-w-[400px] sm:h-[480px] sm:max-w-[450px]"
-          aria-hidden="true"
-        >
-          <SceneWrapper className="h-full w-full">
-            <ambientLight intensity={0.6} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
-            <directionalLight position={[-3, 2, -3]} intensity={0.3} />
-            <AnimatedCharacter />
-          </SceneWrapper>
-        </div>
-      )}
     </motion.section>
   );
 }
